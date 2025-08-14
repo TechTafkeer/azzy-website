@@ -6,13 +6,84 @@ body {
     padding: 0;
     direction: rtl;
 }
+/*in here*/
+.cube-container {
+    width: 200px;
+    height: 200px;
+    perspective: 800px;
+    float: left;
+    margin-right: 40px;
+    cursor: grab;
+}
 
+.cube {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.1s linear;
+}
+
+.face {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background: #0f0f0f;
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #00ffcc;
+}
+
+/* تحديد مواقع الأوجه */
+.front {
+    transform: rotateY(0deg) translateZ(100px);
+}
+
+.back {
+    transform: rotateY(180deg) translateZ(100px);
+}
+
+.right {
+    transform: rotateY(90deg) translateZ(100px);
+}
+
+.left {
+    transform: rotateY(-90deg) translateZ(100px);
+}
+
+.top {
+    transform: rotateX(90deg) translateZ(100px);
+}
+
+.bottom {
+    transform: rotateX(-90deg) translateZ(100px);
+}
+.game-instruction {
+    float: left;
+    width: 220px;
+    margin-top: 60px;
+    font-size: 18px;
+    color: #ffffff;
+    background: #1a1a1a;
+    padding: 15px;
+    border-radius: 10px;
+    border: 2px dashed #00ffcc;
+    text-align: center;
+    line-height: 1.5;
+}
+/*to here*/
 header {
     background-color: #222;
     color: #fff;
     padding: 20px;
     text-align: center;
 }
+
+
 
 nav a {
     margin: 0 10px;
