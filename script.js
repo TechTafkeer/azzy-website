@@ -1,15 +1,14 @@
-const cube = document.querySelector('.cube');
+const cube = document.getElementById("cube");
 let rotateX = 0;
 let rotateY = 0;
 let velocityX = 0;
 let velocityY = 0;
 let lastX = null;
 let lastY = null;
-let isMouseDown = false;
 let isAnimating = false;
+const friction = 0.95;
 
-const friction = 0.95; // كل ما قلّ الرقم زادت مدة الدوران بعد الحركة
-
+// 🖱️ الماوس
 document.querySelector('.cube-container').addEventListener('mousemove', (e) => {
   const rect = e.target.getBoundingClientRect();
   const x = e.clientX - rect.left;
@@ -33,6 +32,36 @@ document.querySelector('.cube-container').addEventListener('mousemove', (e) => {
 });
 
 document.querySelector('.cube-container').addEventListener('mouseleave', () => {
+  lastX = null;
+  lastY = null;
+  if (!isAnimating) animateInertia();
+});
+
+// 📱 اللمس
+document.querySelector('.cube-container').addEventListener('touchmove', (e) => {
+  const touch = e.touches[0];
+  const rect = e.target.getBoundingClientRect();
+  const x = touch.clientX - rect.left;
+  const y = touch.clientY - rect.top;
+
+  if (lastX !== null && lastY !== null) {
+    const dx = x - lastX;
+    const dy = y - lastY;
+
+    velocityY = dx * 0.5;
+    velocityX = -dy * 0.5;
+
+    rotateX += velocityX;
+    rotateY += velocityY;
+
+    cube.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+  }
+
+  lastX = x;
+  lastY = y;
+});
+
+document.querySelector('.cube-container').addEventListener('touchend', () => {
   lastX = null;
   lastY = null;
   if (!isAnimating) animateInertia();

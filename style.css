@@ -6,14 +6,51 @@ body {
     padding: 0;
     direction: rtl;
 }
-/*in here*/
+
+header {
+    background-color: #222;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+nav a {
+    margin: 0 10px;
+    color: #fff;
+    text-decoration: none;
+}
+
+.intro {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 40px 20px;
+}
+
+.intro-content {
+    max-width: 500px;
+    text-align: right;
+}
+
+.logo {
+    width: 250px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+}
+
+.cube-side {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .cube-container {
-    width: 200px;
-    height: 200px;
+    width: 150px;
+    height: 150px;
     perspective: 800px;
-    float: left;
-    margin-right: 40px;
     cursor: grab;
+    margin-bottom: 20px;
 }
 
 .cube {
@@ -26,11 +63,11 @@ body {
 
 .face {
     position: absolute;
-    width: 200px;
-    height: 200px;
+    width: 150px;
+    height: 150px;
     background: #0f0f0f;
     color: white;
-    font-size: 24px;
+    font-size: 20px;
     font-weight: bold;
     display: flex;
     align-items: center;
@@ -38,110 +75,65 @@ body {
     border: 2px solid #00ffcc;
 }
 
-/* تحديد مواقع الأوجه */
 .front {
-    transform: rotateY(0deg) translateZ(100px);
+    transform: rotateY(0deg) translateZ(75px);
 }
 
 .back {
-    transform: rotateY(180deg) translateZ(100px);
+    transform: rotateY(180deg) translateZ(75px);
 }
 
 .right {
-    transform: rotateY(90deg) translateZ(100px);
+    transform: rotateY(90deg) translateZ(75px);
 }
 
 .left {
-    transform: rotateY(-90deg) translateZ(100px);
+    transform: rotateY(-90deg) translateZ(75px);
 }
 
 .top {
-    transform: rotateX(90deg) translateZ(100px);
+    transform: rotateX(90deg) translateZ(75px);
 }
 
 .bottom {
-    transform: rotateX(-90deg) translateZ(100px);
+    transform: rotateX(-90deg) translateZ(75px);
 }
+
 .game-instruction {
-    float: left;
-    width: 220px;
-    margin-top: 60px;
-    font-size: 18px;
+    width: 180px;
+    font-size: 16px;
     color: #ffffff;
     background: #1a1a1a;
-    padding: 15px;
+    padding: 10px;
     border-radius: 10px;
     border: 2px dashed #00ffcc;
     text-align: center;
     line-height: 1.5;
 }
-/*to here*/
-header {
-    background-color: #222;
-    color: #fff;
-    padding: 20px;
-    text-align: center;
-}
 
+@media (max-width: 600px) {
+    .intro {
+        flex-direction: column;
+        text-align: center;
+    }
 
+    .cube-container {
+        width: 100px;
+        height: 100px;
+    }
 
-nav a {
-    margin: 0 10px;
-    color: #fff;
-    text-decoration: none;
-}
+    .face {
+        width: 100px;
+        height: 100px;
+        font-size: 16px;
+    }
 
-.intro {
-    text-align: center;
-    padding: 40px 20px;
-}
+    .game-instruction {
+        width: 160px;
+        font-size: 14px;
+    }
 
-.logo {
-    width: 300px;
-    border-radius: 50%;
-}
-
-section {
-    padding: 30px 20px;
-    border-bottom: 1px solid #ddd;
-}
-
-h2 {
-    color: #444;
-}
-
-ul {
-    list-style: none;
-    padding: 0;
-}
-
-ul li {
-    margin: 10px 0;
-}
-
-form {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-input,
-textarea {
-    padding: 10px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-}
-
-button {
-    padding: 10px;
-    background-color: #222;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-}
-
-footer {
-    background-color: #eee;
-    text-align: center;
-    padding: 15px;
+    .logo {
+        width: 200px;
+    }
 }
